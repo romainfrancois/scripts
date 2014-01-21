@@ -1,0 +1,11 @@
+#!/usr/bin/Rscript 
+
+args <- commandArgs(TRUE)
+pkg <- tail(args, 1L)
+
+setwd( "~/git/Rcpp-test" )
+library(methods)
+library(testthat)
+library(pkg, character.only = TRUE)
+test_dir('.')
+

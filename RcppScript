@@ -1,0 +1,11 @@
+#!/usr/bin/Rscript
+
+args <- commandArgs(TRUE)
+
+if( "-v" %in% args ){
+  options( verbose = TRUE )
+}
+
+library(Rcpp)
+sourceCpp( tail(args,1) )
+
