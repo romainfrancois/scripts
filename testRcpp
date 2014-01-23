@@ -3,9 +3,13 @@
 args <- commandArgs(TRUE)
 pkg <- tail(args, 1L)
 
+filter <- if( length( where <- grepl( "^[-]f", args ) ) ){
+  gsub( "^[-]f", "", args[where][1] )  
+}
+
 setwd( "~/git/Rcpp-test" )
 library(methods)
 library(testthat)
 library(pkg, character.only = TRUE)
-test_dir('.')
+test_dir('.', filter = filter)
 
