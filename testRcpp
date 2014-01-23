@@ -3,7 +3,7 @@
 args <- commandArgs(TRUE)
 pkg <- tail(args, 1L)
 
-filter <- if( length( where <- grepl( "^[-]f", args ) ) ){
+filter <- if( length( where <- grep( "^[-]f", args ) ) ){
   gsub( "^[-]f", "", args[where][1] )  
 }
 
