@@ -2,9 +2,9 @@
 
 args <- commandArgs(TRUE)
 pkg <- tail(args, 1L)
-
+options( warn = 2 )
 setwd( "~/git" )
 system( sprintf( "rm -frv %s/src/*o", pkg ) )
-Rcpp::compileAttributes( pkg )
+suppressWarnings( Rcpp::compileAttributes(pkg) )
 system( sprintf( "R CMD INSTALL %s", pkg ) )
 
