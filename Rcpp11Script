@@ -7,5 +7,6 @@ if( "-v" %in% args ){
 }
 
 library(Rcpp11)
+library(attributes)
 sourceCpp( tail(args,1) )
 

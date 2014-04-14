@@ -1,5 +1,6 @@
 #!/usr/bin/Rscript 
 
+Sys.setenv( "USE_CXX1X" = "yes" )
 args <- commandArgs(TRUE)
 pkg <- tail(args, 1L)
 
