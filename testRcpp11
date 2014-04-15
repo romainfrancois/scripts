@@ -1,0 +1,11 @@
+#!/usr/bin/Rscript 
+require(methods)
+require(devtools)
+require(testthat)
+
+Sys.setenv( "USE_CXX1X" = "yes" )
+
+setwd( "~/git/Rcpp-test" )
+load_all( "~/git/Rcpp-test", recompile = TRUE )
+test_package('RcppTest')
+
