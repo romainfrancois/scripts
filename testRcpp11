@@ -3,9 +3,7 @@ require(methods)
 require(devtools)
 require(testthat)
 
-Sys.setenv( "USE_CXX1X" = "yes" )
-
-setwd( "~/git/Rcpp-test" )
-load_all( "~/git/Rcpp-test", recompile = TRUE )
+setwd( "~/git/Rcpp11/Rcpp-test" )
+load_all( "~/git/Rcpp11/Rcpp-test", recompile = TRUE )
 test_package('RcppTest')
 

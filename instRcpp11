@@ -1,0 +1,9 @@
+#!/usr/bin/Rscript 
+
+args <- commandArgs(TRUE)
+pkg <- tail(args, 1L)
+options( warn = 2 )
+setwd( "~/git/Rcpp11" )
+system( sprintf( "rm -frv %s/src/*o", pkg ) )
+system( sprintf( "R CMD INSTALL %s", pkg ) )
+
