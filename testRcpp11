@@ -1,9 +1,14 @@
 #!/usr/bin/Rscript 
+
 require(methods)
 require(devtools)
 require(testthat)
+require(attributes)
 
-setwd( "~/git/Rcpp11/Rcpp-test" )
-load_all( "~/git/Rcpp11/Rcpp-test", recompile = TRUE )
+setwd( "~/git/Rcpp11" )
+unlink( "Rcpp-test/RcppExports.R")
+unlink( "Rcpp-test/src/RcppExports.cpp")
+compileAttributes( "Rcpp-test" )
+load_all("Rcpp-test", recompile = TRUE)
 test_package('RcppTest')
 
