@@ -1,0 +1,24 @@
+#!/usr/bin/Rscript
+
+require(knitr)
+setwd("~/git/Rcpp11/book")
+system( "git checkout master" )
+                           
+rmd_files <- sprintf( "src/%s", 
+    list.files( "src", pattern = "", recursive = TRUE,  include.dirs = TRUE )
+    )
+md_files  <- sub( "^src/(.*)[.]rmd$", "\\1.md", rmd_files )
+
+mapply( function(rmd, md){
+    knit( rmd, output = md)    
+}, rmd_files, md_files )
+
+system( "rm -frv /tmp/_book" )
+system( "gitbook build . --output=/tmp/_book" )
+system( "git checkout gh-pages" )
+system( "cp -frv /tmp/_book/* ./" )
+unlink( list.files( pattern = "rmd$", recursive = TRUE ) )
+system( 'git commit -a -m "update generated static site"' )
+system( "git checkout master" )
+
+
