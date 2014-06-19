@@ -2,6 +2,8 @@
    
 cd ~/git/Rcpp11/book
 
+git checkout master
+
 rm -frv /tmp/_book
 gitbook build . --output=/tmp/_book
 
